@@ -33,4 +33,4 @@ Make sure you have local mongo-server running with the default port. If cloud mo
 
 # postman collection
 
-Added postman collection to quickly test all the above end points. Please find it out in the root dir with name `postman-collection.json` and environment file with ``;
+Added postman collection to quickly test all the above end points. Please find it out in the root dir with name `postman-collection.json` and environment file with `postman-env.json`;
