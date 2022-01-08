@@ -15,18 +15,18 @@ class AuthController {
   async verifyAndGetAuthReqData(req, isSginup) {
     const userName = req.body.userName ? req.body.userName : null;
     const password = req.body.password ? req.body.password : null;
-    const role = req.body.role ? req.body.role : null;
+    const profilePic = req.body.profilePic ? req.body.profilePic : null;
     if (!userName || !userName.toString().trim().length) {
       throw ({ status: 400, message: "userName required" });
     } if (!password || !password.toString().trim().length) {
       throw ({ status: 400, message: "password required" });
-    } if (isSginup && (!role || !role.toString().trim().length)) {
-      throw ({ status: 400, message: "role required" });
+    } if (isSginup && (!profilePic || !profilePic.toString().trim().length)) {
+      throw ({ status: 400, message: "profilePic required" });
     }
 
     const isUserExist = await profileDB.getUser(userName);
-    if (isSginup && isUserExist && isUserExist.role === role) {
-      throw ({ status: 403, message: "User already exist with given role" });
+    if (isSginup && isUserExist) {
+      throw ({ status: 403, message: "User already exist" });
     } else if (!isSginup && !isUserExist) {
       throw ({ status: 401, message: "Invalid Credentials" });
     }
@@ -34,20 +34,20 @@ class AuthController {
     return {
       userName: userName,
       password: password,
-      role: (isSginup) ? role : isUserExist.role
+      profilePic: (isSginup) ? profilePic : isUserExist.profilePic
     };
   };
 
   async postUser(reqData, res) {
     const hashedPassword = await bcrypt.hash(reqData.password, 10);
-    const save = await profileDB.save({ userName: reqData.userName, password: hashedPassword, role: reqData.role });
+    const save = await profileDB.save({ userName: reqData.userName, password: hashedPassword, profilePic: reqData.profilePic });
     this.generateTokenAndSendResponse(reqData, res, 201);
   };
 
   generateTokenAndSendResponse(userData, res, status) {
     const jwtToken = this.generateToken(userData);
     const respObj = {
-      role: userData.role,
+      profilePic: userData.profilePic,
       expiresIn: jwtExpiry,
       accessToken: jwtToken,
       userName: userData.userName,
@@ -74,9 +74,8 @@ class AuthController {
 
   generateToken(userData) {
     return JWT.sign(
-      {
-        userName: userData.userName, role: userData.role
-      }, process.env.JWT_SECRET, { expiresIn: jwtExpiry }
+      { userName: userData.userName },
+      process.env.JWT_SECRET, { expiresIn: jwtExpiry }
     )
   };
 

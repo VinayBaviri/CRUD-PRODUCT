@@ -6,11 +6,11 @@ class ProfileDB {
 
   save(obj) {
     return profileDoc.updateOne(
-      { userName: obj.userName, role: obj.role },
+      { userName: obj.userName },
       {
-        role: obj.role,
         userName: obj.userName,
-        password: obj.password
+        password: obj.password,
+        profilePic: obj.profilePic
       },
       {
         upsert: true

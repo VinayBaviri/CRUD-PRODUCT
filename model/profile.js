@@ -5,7 +5,7 @@ const profileSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  role: {
+  profilePic: {
     type: String,
     required: true
   },

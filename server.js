@@ -23,7 +23,7 @@ mongoose.connect(MONGO_URI,
 
 //Routes Imported
 const auth = require("./routes/auth");
-const user = require("./routes/user")
+const product = require("./routes/product")
 
 
 app.get('/', function (req, res) {
@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
 
 app.use("*", verifyAuth);
 app.use('/auth', auth);
-app.use("/user", user);
+app.use("/product", product);
 
 
 app.use((req, res) => {

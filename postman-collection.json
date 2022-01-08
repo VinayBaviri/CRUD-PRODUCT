@@ -23,7 +23,7 @@
 			"response": []
 		},
 		{
-			"name": "sing up user",
+			"name": "sing up",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"role\": \"user\",\r\n    \"userName\": \"{{userName}}\",\r\n    \"password\": \"{{password}}\"\r\n\r\n}",
+					"raw": "{\r\n    \"userName\": \"{{userName}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"profilePic\": \"data:image/png;base64,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\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -147,7 +147,7 @@
 			"response": []
 		},
 		{
-			"name": "User-1",
+			"name": "Product -1",
 			"event": [
 				{
 					"listen": "test",
@@ -159,8 +159,8 @@
 							"     pm.expect(pm.response.code).to.eql(201, \"user creation failed\");\r",
 							"});\r",
 							"\r",
-							"pm.environment.set(\"userId-1\", response.userId);\r",
-							"pm.environment.set(\"userName-1\", response.userName);\r",
+							"pm.environment.set(\"productId-1\", response.productId);\r",
+							"pm.environment.set(\"productName-1\", response.productName);\r",
 							"\r",
 							""
 						],
@@ -183,7 +183,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userName\": \"user-1\",\r\n    \"userData\": {\r\n        \"sector\": \"IT\",\r\n        \"address\": \"vizag\",\r\n        \"mobile\": \"1234567890\",\r\n        \"skills\": [\"node.js\", \"js\", \"ts\"]\r\n    }\r\n}",
+					"raw": "{\r\n    \"productName\": \"Laptop\",\r\n    \"productData\": {\r\n       \"ram\": \"12GB\",\r\n       \"processor\": \"M1\",\r\n       \"company\": \"Apple\",\r\n       \"model\": \"airbook\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -191,12 +191,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{demo}}/user/",
+					"raw": "{{demo}}/product/",
 					"host": [
 						"{{demo}}"
 					],
 					"path": [
-						"user",
+						"product",
 						""
 					]
 				}
@@ -204,7 +204,7 @@
 			"response": []
 		},
 		{
-			"name": "User - 1",
+			"name": "Product  - 1",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -219,20 +219,57 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{demo}}/user/{{userId-1}}",
+					"raw": "{{demo}}/product/{{productId-1}}",
 					"host": [
 						"{{demo}}"
 					],
 					"path": [
-						"user",
-						"{{userId-1}}"
+						"product",
+						"{{productId-1}}"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "User-2",
+			"name": "Update product - 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authorization}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\": \"Laptop updated\",\r\n    \"productData\": {\r\n       \"ram\": \"12GB\",\r\n       \"processor\": \"M1\",\r\n       \"company\": \"Apple\",\r\n       \"model\": \"airbook\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{demo}}/product/{{productId-1}}",
+					"host": [
+						"{{demo}}"
+					],
+					"path": [
+						"product",
+						"{{productId-1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product -2",
 			"event": [
 				{
 					"listen": "test",
@@ -244,8 +281,8 @@
 							"     pm.expect(pm.response.code).to.eql(201, \"user creation failed\");\r",
 							"});\r",
 							"\r",
-							"pm.environment.set(\"userId-2\", response.userId);\r",
-							"pm.environment.set(\"userName-2\", response.userName);\r",
+							"pm.environment.set(\"product-2\", response.productId);\r",
+							"pm.environment.set(\"productName-2\", response.productName);\r",
 							"\r",
 							""
 						],
@@ -268,7 +305,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userName\": \"user-2\",\r\n    \"userData\": {\r\n        \"sector\": \"ECE\",\r\n        \"address\": \"Bangalore\",\r\n        \"mobile\": \"9876543210\",\r\n        \"skills\": [\r\n            \"Antenna designing\",\r\n            \"Circuit checker\",\r\n            \"Technician\"\r\n        ]\r\n    }\r\n}",
+					"raw": "{\r\n    \"productName\": \"Router\",\r\n    \"productData\": {\r\n       \"antenaas\": 4,\r\n       \"company\": \"Dlink\",\r\n       \"model\": \"D1234\",\r\n       \"bandwidth\": \"100MB\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -276,12 +313,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{demo}}/user/",
+					"raw": "{{demo}}/product/",
 					"host": [
 						"{{demo}}"
 					],
 					"path": [
-						"user",
+						"product",
 						""
 					]
 				}
@@ -289,7 +326,7 @@
 			"response": []
 		},
 		{
-			"name": "User - 2",
+			"name": "Product - 2",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -304,107 +341,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{demo}}/user/{{userId-2}}",
+					"raw": "{{demo}}/product/{{product-2}}",
 					"host": [
 						"{{demo}}"
 					],
 					"path": [
-						"user",
-						"{{userId-2}}"
+						"product",
+						"{{product-2}}"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "sing up admin",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.environment.set(\"userName\", \"hari.baviri\");\r",
-							"pm.environment.set(\"password\", \"Hari@1223\");"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var response = JSON.parse(responseBody);\r",
-							"\r",
-							"pm.test(\"Login Test\", function () {\r",
-							"     pm.expect(pm.response.code).to.eql(201, \"signup failed\");\r",
-							"});\r",
-							"\r",
-							"pm.environment.set(\"authorization\", response.accessToken);\r",
-							"pm.environment.set(\"userName\", response.userName);\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"userName\": \"{{userName}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"role\": \"admin\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{demo}}/auth/signup",
-					"host": [
-						"{{demo}}"
-					],
-					"path": [
-						"auth",
-						"signup"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Admin Login",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.environment.set(\"userName\", \"hari.baviri\");\r",
-							"pm.environment.set(\"password\", \"Hari@1223\");"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var response = JSON.parse(responseBody);\r",
-							"\r",
-							"pm.test(\"Login Test\", function () {\r",
-							"     pm.expect(pm.response.code).to.eql(200, \"Login failed\");\r",
-							"});\r",
-							"\r",
-							"pm.environment.set(\"authorization\", response.accessToken);\r",
-							"pm.environment.set(\"userName\", response.userName);\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "Update product - 2",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -416,11 +366,11 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userName\": \"{{userName}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"raw": "{\r\n    \"productName\": \"Router Updated\",\r\n    \"productData\": {\r\n       \"antenaas\": 4,\r\n       \"company\": \"Dlink\",\r\n       \"model\": \"D1234\",\r\n       \"bandwidth\": \"100MB\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -428,20 +378,20 @@
 					}
 				},
 				"url": {
-					"raw": "{{demo}}/auth/login",
+					"raw": "{{demo}}/product/{{product-2}}",
 					"host": [
 						"{{demo}}"
 					],
 					"path": [
-						"auth",
-						"login"
+						"product",
+						"{{product-2}}"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "All Users",
+			"name": "All Products",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -456,13 +406,69 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{demo}}/user/",
+					"raw": "{{demo}}/product/",
 					"host": [
 						"{{demo}}"
 					],
 					"path": [
-						"user",
+						"product",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product - 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authorization}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{demo}}/product/{{productId-1}}",
+					"host": [
+						"{{demo}}"
+					],
+					"path": [
+						"product",
+						"{{productId-1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product - 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authorization}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{demo}}/product/{{product-2}}",
+					"host": [
+						"{{demo}}"
+					],
+					"path": [
+						"product",
+						"{{product-2}}"
 					]
 				}
 			},

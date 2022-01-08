@@ -25,10 +25,12 @@ Make sure you have local mongo-server running with the default port. If cloud mo
 - `GET ` -  `<url>/` - Initial route
 - `POST` - `<url>/auth/signup` - Profile signup
 - `POST` - `<url>/auth/login` - Profile login
-- `POST` - `<url>/user/` - Save User
-- `GET`  - `<url>/user/` - Get All ( only for admin )
-- `GET ` - `<url>/user/:userId` - Get one User
+- `POST` - `<url>/product/` - Save product
+- `GET`  - `<url>/product/:productId` - Get prodcut by id
+- `PUT`  - `<url>/product/:productId` - Update product by id
+- `DELETE` - `<url>/product/:productId` - Delete product by id
+- `GET`  - `<url>/product/` - Get all products.
 
 # postman collection
 
-Added postman collection to quickly test all the above end points. Please find it out in the root dir with name `postman-collection.json`.
+Added postman collection to quickly test all the above end points. Please find it out in the root dir with name `postman-collection.json` and environment file with ``;
